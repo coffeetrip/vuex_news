@@ -22,7 +22,21 @@ body {
   padding: 0;
   margin: 0;
 }
-/* router transition */
+
+/* 밑줄 */
+a {
+  color: #34495e;
+  text-decoration: none; 
+}
+a:hover {
+  color: #42b883;
+  text-decoration: underline;
+}
+a.router-link-exact-active {
+  text-decoration: underline;
+}
+
+/* router transition 페이지 자연스럽게 넘어감 */
 .page-enter-active, .page-leave-active {
   transition: opacity .5s;
 }
