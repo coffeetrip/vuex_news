@@ -11,6 +11,7 @@ export const store = new Vuex.Store({
     jobs: [],
     ask: [],
     user: {},
+    item: [],
   },
   getters: {
     fetchedAsk(state) {
@@ -20,5 +21,4 @@ export const store = new Vuex.Store({
   mutations, // mutations에서 state로
   // mutations: mutations
   actions,  // api꺼내와서 mutations으로
-    
 });

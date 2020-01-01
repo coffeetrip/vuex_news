@@ -10,5 +10,8 @@ export default {
   },
   SET_USER(state, user) {
     state.user = user;
+  },
+  SET_ASKID(state, item) {
+    state.item = item;
   }
 }
