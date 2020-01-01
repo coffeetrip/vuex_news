@@ -1,9 +1,8 @@
 <template>
   <div class="header">
-    <!-- link로 연결해준다. -->
-    <router-link to="/news">News</router-link> |
-    <router-link to="/ask">Ask</router-link> |
-    <router-link to="/jobs">Jobs</router-link>
+      <router-link to="/news">News</router-link> |
+      <router-link to="/ask">Ask</router-link> |
+      <router-link to="/jobs">Jobs</router-link>
   </div>
 </template>
 

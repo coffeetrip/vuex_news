@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <!-- 1 - Strongly Recommended -->
     <ToolBar></ToolBar>
-    <!-- 2 - Essential -->
-    <!-- <tool-bar></tool-bar> -->
-
     <router-view></router-view>
   </div>
 </template>
@@ -15,7 +11,7 @@ import ToolBar from './components/ToolBar.vue';
 export default {
   components: {
     ToolBar,
-  }
+  },
 }
 </script>
 

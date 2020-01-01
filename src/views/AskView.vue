@@ -1,40 +1,28 @@
 <template>
   <div>
-    <!-- <div v-for="ask in this.$store.state.asks" :key="ask.id">{{ask.title}}</div> -->
-    <!-- <div v-for="ask in asksItems" :key="ask.id">{{ask.title}}</div> -->
-    <div v-for="ask in fetchedask" :key="ask.id">
-      <a :href="ask.url">{{ ask.title }}</a>
-      <small>
-        {{ ask.time_ago }} by {{ ask.user }}</small>
-    </div>
+    <div v-for="item in ask" :key="item.id">{{item.title}}</div>
   </div>
 </template>
 
 <script>
-// import { mapState, mapGetters } from 'vuex';
-import { mapGetters } from 'vuex';
+import { fetchAskList } from '../api/index.js';
 
 export default {
-  computed: {
-    // ...mapGetters({
-    //   asksItems: 'fetchedask'  // 변수 : '속성'
-    // }),
-    ...mapGetters([
-      'fetchedask'
-    ]),
-
-    // 2. 
-    // ...mapState({
-   //   asks: state => state.asks
-   // }),
-
-    // 1.
-    // asks() {
-    //   return this.$store.state.asks;
-    // }
+  data() {
+    return {
+      ask: []
+    }
   },
   created() {
-    this.$store.dispatch('FETCH_ASKS');
+    var vm = this;
+    fetchAskList()
+    .then(function(response) {
+      console.log('호출 후: ', this);
+      vm.ask = response.data;
+    })
+    .catch(function(error) {
+      console.log(error)
+    })
   }
 }
 </script>
