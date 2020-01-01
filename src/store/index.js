@@ -1,17 +1,33 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { fetchNewsList } from '../api/index.js';
+import {
+  fetchNewsList,
+  fetchJobsList, fetchAskList
+} from '../api/index.js';
 
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
-    news: []
+    news: [],
+    jobs: [],
+    ask: [],
+  },
+  getters: {
+    fetchedAsk(state) {
+      return state.ask;
+    }
   },
   mutations: {  // mutations에서 state로
     SET_NEWS(state, news) { // news = response.data
       state.news = news;
-    }
+    },
+    SET_JOBS(state, jobs) {
+      state.jobs = jobs;
+    },
+    SET_ASK(state, ask) {
+      state.ask = ask;
+    },
   },
   actions: {  // api꺼내와서 mutations으로
     FETCH_NEWS(context) {
@@ -21,11 +37,24 @@ export const store = new Vuex.Store({
         context.commit('SET_NEWS', response.data); 
         // commit : mutations에 데이터 넘김
         // SET_NEWS를 시행, response.data를 넘김
-
       })
       .catch(error => {
         console.log(error)
       })
-    }
+    },
+    FETCH_JOBS({ commit }) {
+      fetchJobsList()
+        .then(({ data }) => {
+          commit('SET_JOBS', data);
+        })
+        .catch(error => console.log(error))
+    },
+    FETCH_ASK({ commit }) {
+      fetchAskList()
+      .then(({ data }) => {
+        commit('SET_ASK', data);
+      })
+      .catch(error => console.log(error))
+    },
   }
 });
