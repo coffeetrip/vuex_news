@@ -14,14 +14,14 @@ export default {
   },
   created() {
     bus.$emit('start:spinner');
-    setTimeout(() => {
+    // setTimeout(() => {
       this.$store.dispatch('FETCH_NEWS')
         .then(() => {
           console.log('fetched');
           bus.$emit('end:spinner');
         })
         .catch(error => console.log(error));
-    }, 3000);
+    // }, 3000);
   }
 }
 </script>
