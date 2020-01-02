@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- NewView.vue는 필요없음 -->
     <list-item></list-item>
   </div>
 </template>
@@ -14,14 +15,14 @@ export default {
   },
   created() {
     bus.$emit('start:spinner');
-    // setTimeout(() => {
+    setTimeout(() => {
       this.$store.dispatch('FETCH_NEWS')
         .then(() => {
           console.log('fetched');
           bus.$emit('end:spinner');
         })
-        .catch(error => console.log(error));
-    // }, 3000);
+        .catch((error) => console.log(error));
+    }, 3000);
   }
 }
 </script>

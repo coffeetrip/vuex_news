@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- JobsView.vue는 필요없음 -->
     <list-item></list-item>
     <!-- <ul class="news-list">
       <li v-for="job in this.$store.state.jobs" :key="job.id" class="post"> -->

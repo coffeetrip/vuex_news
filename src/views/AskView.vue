@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- AskView.vue는 필요없음 -->
     <list-item></list-item>
     <!-- <ul class="news-list">
       <li v-for="item in fetchedAsk" :key="item.id" class="post"> -->
