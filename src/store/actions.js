@@ -10,8 +10,9 @@ export default {
   FETCH_NEWS(context) {
     fetchNewsList()
       .then(response => {
-        console.log(response);
+        // console.log(response);
         context.commit('SET_NEWS', response.data);
+        return response;
         // commit : mutations에 데이터 넘김
         // SET_NEWS를 시행, response.data를 넘김
       })
